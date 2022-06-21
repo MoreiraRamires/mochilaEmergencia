@@ -12,13 +12,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-
-
-
 ## 💻 Objetivo
 
 Aprender a manipular o DOM e começar a dominar essa linguagem tão importante para o Front-End, que é o JavaScript.
 
 ## :memo: Licença
 
+Mochila ( referência): projeto de Tricia Katz https://codepen.io/triciaakatz
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](.github/LICENSE.md) para mais detalhes.
