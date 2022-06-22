@@ -1,4 +1,7 @@
 const form = document.querySelector("#novoItem");
+const inputQuantidade = document.querySelector("#quantidade");
+const inputNome = document.querySelector("#nome");
+
 console.log(form)
 
 form.addEventListener("submit",(event)=>{
@@ -10,7 +13,8 @@ form.addEventListener("submit",(event)=>{
     const nome = event.target.elements['nome'].value;
     const quantidade = event.target.elements['quantidade'].value;
 
-    criaElemento(nome,quantidade)
+    criaElemento(nome,quantidade);
+    limpaInput();
 })
 
 function criaElemento(nome,quantidade){
@@ -30,4 +34,9 @@ function criaElemento(nome,quantidade){
     lista.appendChild(novoItemLista)
   
 
+
+}
+function limpaInput(){
+    inputNome.value="";
+    inputQuantidade.value=0;
 }
