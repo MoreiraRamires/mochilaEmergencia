@@ -3,26 +3,32 @@ const inputQuantidade = document.querySelector("#quantidade");
 const inputNome = document.querySelector("#nome");
 const itensLocalStorage = JSON.parse(localStorage.getItem("itens"))||[];
 
-console.log(itensLocalStorage)
 
 itensLocalStorage.forEach(element => {
+
+
     criaElemento(element)
 });
 
 form.addEventListener("submit",(event)=>{
+    const existeItem = itensLocalStorage.find(element => element.nome == nome.value)
+    console.log(existeItem)
+
+
+
 
     event.preventDefault();
    
     
     //pegar o nome e a quantidade 
     event.target.elements
-    const nome = event.target.elements['nome'].value;
-    const quantidade = event.target.elements['quantidade'].value;
+    const nomeEvento = event.target.elements['nome'].value;
+    const quantidadeEvento = event.target.elements['quantidade'].value;
 
 
     const itemAtual = {
-        'nome':nome,
-        'quantidade':quantidade
+        'nome':nomeEvento,
+        'quantidade':quantidadeEvento
     }
 
     itensLocalStorage.push(itemAtual)
@@ -34,7 +40,6 @@ form.addEventListener("submit",(event)=>{
 })
 
 function criaElemento(itemAtual){
-    console.log(itemAtual)
 
    const novoItemLista = document.createElement('li');
             novoItemLista.classList.add('item');
