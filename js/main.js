@@ -18,7 +18,7 @@ form.addEventListener("submit",(event)=>{
     const quantidadeEvento = event.target.elements['quantidade'].value;
 
 
-    const existeItem = itensLocalStorage.find(element => element.nome == nome.value)
+    const existeItem = itensLocalStorage.find(element => element.nome.toUpperCase() === nome.value.toUpperCase() )
     const itemAtual = {
         'nome':nomeEvento,
         'quantidade':quantidadeEvento
@@ -27,15 +27,15 @@ form.addEventListener("submit",(event)=>{
     if ( existeItem){
         itemAtual.id = existeItem.id
         atualizaElemento(itemAtual)
-        console.log(itemAtual)
+       
 
-
+        itensLocalStorage[existeItem.id] = itemAtual
     } else{
         // add novo id 
         itemAtual.id = itensLocalStorage.length;
         criaElemento(itemAtual);
         itensLocalStorage.push(itemAtual)
-        console.log(itemAtual)
+       
     }
 
 
@@ -54,27 +54,15 @@ function criaElemento(itemAtual){
             numeroItemLista.dataset.id = itemAtual.id
             
             novoItemLista.appendChild(numeroItemLista)
-            novoItemLista.innerHTML+=itemAtual.nome;
+            novoItemLista.innerHTML+=itemAtual.nome.toUpperCase();
 
     const  lista = document.querySelector('[data-lista]');
             
     lista.appendChild(novoItemLista);
 
-    
-
-
-
 }
 function atualizaElemento(itemAtual){
-console.log(  document.querySelector(`[data-id="${itemAtual.id}"]`)
-)  
-
-
-console.log("entrei")
-
-    //pegar a quantidade 
-    //somar a quantidade antiga com a nova
-    //retornar o valor
+ document.querySelector(`[data-id="${itemAtual.id}"]`).innerHTML = itemAtual.quantidade
 }
 function limpaInput(){
     inputNome.value="";
