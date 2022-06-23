@@ -15,26 +15,6 @@ form.addEventListener("submit",(event)=>{
     const nome = event.target.elements['nome'].value;
     const quantidade = event.target.elements['quantidade'].value;
 
-    criaElemento(nome,quantidade);
-    limpaInput();
-})
-
-function criaElemento(nome,quantidade){
-
-   const novoItemLista = document.createElement('li');
-            novoItemLista.classList.add('item');
-            
-            const numeroItemLista = document.createElement('strong')
-            numeroItemLista.innerHTML=quantidade;
-            
-            novoItemLista.appendChild(numeroItemLista)
-            novoItemLista.innerHTML+=nome;
-
-    const  lista = document.querySelector('[data-lista]');
-            
-    lista.appendChild(novoItemLista);
-
-    
 
     const itemAtual = {
         'nome':nome,
@@ -44,6 +24,29 @@ function criaElemento(nome,quantidade){
     itensLocalStorage.push(itemAtual)
 
     localStorage.setItem('itens',JSON.stringify(itensLocalStorage))
+
+    criaElemento(itemAtual);
+    limpaInput();
+})
+
+function criaElemento(itemAtual){
+    console.log(itemAtual)
+
+   const novoItemLista = document.createElement('li');
+            novoItemLista.classList.add('item');
+            
+            const numeroItemLista = document.createElement('strong')
+            numeroItemLista.innerHTML=itemAtual.quantidade;
+            
+            novoItemLista.appendChild(numeroItemLista)
+            novoItemLista.innerHTML+=itemAtual.nome;
+
+    const  lista = document.querySelector('[data-lista]');
+            
+    lista.appendChild(novoItemLista);
+
+    
+
 
 
 }
