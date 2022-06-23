@@ -26,14 +26,16 @@ form.addEventListener("submit",(event)=>{
     
     if ( existeItem){
         itemAtual.id = existeItem.id
-        console.log("id existente")
+        atualizaElemento(itemAtual)
+        console.log(itemAtual)
+
 
     } else{
         // add novo id 
-        console.log("crie o ID")
         itemAtual.id = itensLocalStorage.length;
         criaElemento(itemAtual);
         itensLocalStorage.push(itemAtual)
+        console.log(itemAtual)
     }
 
 
@@ -62,6 +64,17 @@ function criaElemento(itemAtual){
 
 
 
+}
+function atualizaElemento(itemAtual){
+console.log(  document.querySelector(`[data-id="${itemAtual.id}"]`)
+)  
+
+
+console.log("entrei")
+
+    //pegar a quantidade 
+    //somar a quantidade antiga com a nova
+    //retornar o valor
 }
 function limpaInput(){
     inputNome.value="";
