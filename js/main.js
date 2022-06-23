@@ -5,10 +5,14 @@ const itensLocalStorage = JSON.parse(localStorage.getItem("itens"))||[];
 
 console.log(itensLocalStorage)
 
+itensLocalStorage.forEach(element => {
+    criaElemento(element)
+});
+
 form.addEventListener("submit",(event)=>{
 
     event.preventDefault();
-    console.log("funcionou o submit")
+   
     
     //pegar o nome e a quantidade 
     event.target.elements
