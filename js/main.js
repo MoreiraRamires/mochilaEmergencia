@@ -1,10 +1,12 @@
 const form = document.querySelector("#novoItem");
 const inputQuantidade = document.querySelector("#quantidade");
 const inputNome = document.querySelector("#nome");
+const itensLocalStorage = JSON.parse(localStorage.getItem("itens"))||[];
 
-console.log(form)
+console.log(itensLocalStorage)
 
 form.addEventListener("submit",(event)=>{
+
     event.preventDefault();
     console.log("funcionou o submit")
     
@@ -25,18 +27,27 @@ function criaElemento(nome,quantidade){
             const numeroItemLista = document.createElement('strong')
             numeroItemLista.innerHTML=quantidade;
             
-            
             novoItemLista.appendChild(numeroItemLista)
             novoItemLista.innerHTML+=nome;
 
     const  lista = document.querySelector('[data-lista]');
             
-    lista.appendChild(novoItemLista)
-  
+    lista.appendChild(novoItemLista);
+
+    
+
+    const itemAtual = {
+        'nome':nome,
+        'quantidade':quantidade
+    }
+
+    itensLocalStorage.push(itemAtual)
+
+    localStorage.setItem('itens',JSON.stringify(itensLocalStorage))
 
 
 }
 function limpaInput(){
     inputNome.value="";
-    inputQuantidade.value=0;
+    inputQuantidade.value="";
 }
