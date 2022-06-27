@@ -2,6 +2,7 @@ html {
     background: radial-gradient(farthest-corner at right top,#21A09D, #06182D);
     height: 100%;
     font-family: 'Roboto', cursive;
+    
 }
 
 .conteudo {
@@ -130,3 +131,24 @@ html {
     font-weight: 400;
 }
 
+
+
+section{
+    padding: 10vh 5em 0;
+}
+
+h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; text-align: center;}
+
+
+p { color: #FFFFFF; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
+
+p.principal{
+    padding: 2em;
+}
+a { color: #C5965F; text-decoration: underline; }
+
+
+a:hover { color: #ffffff }
+
+
+.date { background: #C5965F; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }
